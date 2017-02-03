@@ -1,0 +1,10 @@
+SQL
+
+when selecting from a table you can do SELECT(table.*) to grab everything from that table.
+Query inside of query
+* UPDATE addresses SET city = “New York”, state = “NY”, zip = 10108 WHERE user_id IN (SELECT id FROM users WHERE first_name = “Mitch”)
+
+Active record
+* its a ruby gem
+* Object Relational Mapping - handles database connection for you
+* takes a sql database and turns them into ruby objects that you may interact with then puts it back into the db

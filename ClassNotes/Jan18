@@ -1,0 +1,89 @@
+Wednesday, Jan. 18
+
+SQLite - sqlitebrowser.org
+to accèss SQLite go to terminal and then ‘sqlite3’
+to start a new table to ’sqlite3 filename.sqlite3’
+
+the capitalizations are just reminders to you that this is the commands that sql is using to execute.
+
+.tables - lets you see your table
+CREATE TABLE actors (id INTEGER PRIMARY KEY, name VARCHAR, bio TEXT, salary INTEGER);
+ - Primary Key
+ARCHER vs TEXT - VARCHAR can have a limit on it like (25) characters. TEXT can be unlimited
+.schema - let’s you see how the table is defined
+
+INSERT INTO actor (name, bio, salary) VALUES (“Tom Hanks”, “Stuff”, “500000);
+UPDATE actors SET
+DELETE FROM actors WHERE
+SELECT * actors - the star says select everything in the table
+
+When you write a sql query
+SELECT (What)
+FROM (Where)
+WHERE (conditions) - name LIKE “%Hanks” - the percentage signs says look for anything with ‘Hanks’ at the end;  “%Hanks%” says look for anything with ‘Hanks’ in the value; ILIKE - insensitive like, doesn’t care about being case sensitive
+ORDERBY (field direction)
+LIMIT (How Many)
+OFFSET
+
+ALTER TABLE movies ADD COLUMN gross INTEGER;
+ - this lets you alter the table by adding a column
+- you may also use ALTER TABLE to CHANGE column names or alter table
+ ALTER TABLE vs UPDATE
+ - alter table changes the schema (such as the columns, the structure)
+- update just changes the values in the columns/rows.
+
+SELECT COUNT(*) FROM movies - let’s you see how many rows are in the table
+
+foreign key - this is how you tie two tables together.  it connects to a primary key that you set in another table
+
+JOINS
+ties two tables together so that you may query them as 1
+you do this through primary and foreign keys, in our example, director_id on movies table to ID on directors table
+
+SELECT name FROM directors INNER JOIN movies ON directors.id = movies.director_id WHERE name = “The Social Network”;
+ - this would not work because ‘name’ is a column header on both tables.
+
+SELECT directors.name FROM directors INNER JOIN movies ON directors.id = movies.director_id WHERE movies.name = “The Social Network”;
+ - this does work because you are specifying the ‘table.column’ that you are looking at.
+- you are doing this because you want the director but you only have the movie name, which this information is in two different tables
+SELECT is what you want to get
+FROM is what you are primarily looking at
+INNER JOIN is what you are connecting to ON or how, in this case the directors.id = movies.director_id
+
+Inner Joins will show you only the information that exists in both tables
+
+LEFT OUTER JOIN - says give me everything in the left table regardless of if it has a matching counter part in the table you are matching with.  you are matching the tables side by side; returns everything in the left table and tries to match it with the right
+RIGHT OUTER JOIN - opposite of left
+FULL OUTER JOIN - returns everything from both tables regardless of if they match up.
+Majority of joins are going to be INNER.
+You can also just switch up how you position the databases instead of changing RIGHT or LEFT - just switch the tables in the query
+
+Outer Joins fill in a null value and return it, where as Inner Joins do not return if it does not match
+
+1 to many relationship - there is 1 director to many movies
+
+
+many to many relationships - many movies have many actors
+use Join Tables
+A join table associates two table together by grabbing information from one table, making it a column, and joining it to a column that grabs information from the other table.
+	so, you have movies > appearances < actors.  appearances is the join table that has two columns, movie_id and actor_id.  it joins the movie to the actor by the ID association.
+
+SELECT movies.name FROM movies INNER JOIN appearances ON movies.id = appearances.movie_id INNER JOIN actors ON appearances.actor_id = actors.id WHERE actors.name = “Tom Cruise”;
+ - this is how you use a join table to join the two tables it associates and then to search for what you are looking for.
+
+joins can often be slow, so this is a good place to look if you are seeing slow downs.
+
+SUM(column) - total of the column
+AVG(column) - average
+AS name - allows you to name a value you are looking for, such as the SUM of the budget column
+GROUP BY
+
+SELECT * - this is a way of saying give me back everything
+
+
+
+
+
+
+
+

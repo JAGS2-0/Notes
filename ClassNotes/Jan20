@@ -1,0 +1,35 @@
+Friday, Jan. 20
+
+ActiveRecord
+* when working with ruby, your classes are always singular, but the table is usually plural
+* has_many - is a class method, so it’s a statement defined on the class and can use self.
+
+Ruby
+ASC - lowest to highest
+
+Rails
+* can create an application in ruby mine and link it to a database
+* to create a new model, click command+option+G, supposedly it’s under the tools menu as well, but you need to have it in a new window to see that
+* when you create a model in rails, it will automatically create a Migration file that creates a database for you
+* also automatically creates a ruby file titled the name of your Model
+* Migrations can help you structure the database
+    * they also let you keep records of the structure and how it changes
+    * so if someone pulls down the rails application and run the file, then they can have the same DB to work with
+* you have to actually run the migrate file to create the table/db
+* Tools > Run rails console, puts you in an IRB like session to run your code
+    * while in the console, you may use the Active Record/Ruby syntax to add to your database
+* Anytime you want to make a change to the database, you want to create a new migration file.
+    * this will make it so that when someone wants to copy your database they just run all the migration files.
+    * it also keeps a record of the structural change
+    *
+* Anytime you create a new model, you will automatically get a new migration file, that will create that part of the file.
+* author: references - use this in your model titling when you want to relate one model to the other.
+* there is a schema file in your db file that lets you see how everything is structured
+* when you call ruby in rails, it will show you the Active Record and sql that it’s running to pull up the info
+* you must reload! each time to get the new info in
+* author.book << book, this is you pushing the book to the author’s array of books.  This is as opposed to doing book.save which will automatically know which to save it to the author id (you had to specify this)
+* in your gems file you can install new gems, like faker.
+* in your seeds file, under the db directory, you can apply the gems, like faker to generate data for your db.
+    * you have to run the seed file as ‘Run Rake Task’.  This is because if you run just the seed file it will run the ruby, but it has no context of any other files.
+    * running by raketast means that you are using all the other files so that seeds knows what your classes and variables are
+    *

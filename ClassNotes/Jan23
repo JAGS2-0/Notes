@@ -1,0 +1,41 @@
+Monday, Jan. 23
+
+Rails
+MVC - Model View Control
+Model is Active Record stuff
+View is ERB (embedded ruby)
+Control is Ruby Class/Modules
+
+ORM - Object Relational Mapping - Active Record that is built on top of SQL
+
+SQL Table Models
+primary key - default sorting column for a table before you define anything. works a lot with indexes.; default value from a row, how you identify that row.
+foreign key - the column/key that links the table to another one
+
+Relationships
+One to One - Visit; one lead may only have one first visit; Contact & Web Visitor; Agent & Credentials
+	relationship defined as ‘has_one :classname’
+	and belongs_to :classname
+If the class name is AspNetUser or has camel case, then your variable needs to have snakecase, all lower case with _ as spaces, so it would be asp_net_user.
+One to Many - Buyer Agents to Leads; a buyer agent may have many leads, but a lead my only have one agent
+Many to Many - Adding three tables together with one table in the middle; contact user table
+
+Active Record
+Convention means that Active Record has a lot of code behind the scenes that is trying to ‘assume’ stuff.
+So, often you will have to configure it to tell it where to go as opposed to it assuming
+
+Active Record works on “Convention”.  and you have to tell use inheritance to make it work.
+So you say
+
+class User < ActiveRecord :: Base
+# if your class name is the same as the table name then you do not have to tell active record where to go.
+# if not, then you need to tell it where to go with this:
+	self.table_name = ‘tablename’
+end
+
+This structure allows a lot of code to fire in the background, then you can ‘configure’ it and overwrite what you need to.
+
+When working with ActiveRecord make sure you understand your SQL relationships first, such as one-to-one, or one-to-many.
+
+RubyMine
+You can set a ‘watch’ on debug mode to keep an eye on a variable throughout the debug.

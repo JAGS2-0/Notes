@@ -1,0 +1,89 @@
+Tuesday, Jan. 24
+
+Rails
+* Model - is Ruby code that let’s it interact with a database; this actually interacts with the tables
+    * this is a class that will talk to the table
+    * Issue.new needs to talk to the table, so if the table does not exist, it will error out.
+        * It will work as long as you have a table, even if it’s empty.  you will get an object with empty values.
+
+* Migration - this actually changes/makes the tables in the DB; this needs to be run once it’s built.
+    * changes the structure of the table
+    * timestamps is a column in the table that will tell you when each entry was created and updated
+        * null : false - means it will not accept null values
+    * you may verify your migration worked in the schema file.
+    * Generate migration from rails console in terminal
+        * rails g migration AddReproterToIssues reproter_id:integer
+            * this command allowed Rails to infer it was the ‘issues’ table based on the title
+        * rake db:migrate
+            * run migration
+            * restart console afterwards
+    * Once a migration has been run, it cannot be changed.  If you need to make a change, you need to make a new migration.
+* rails server
+* config/routes.rb  - this is where you add any new routes and set ‘controllers’ and they will show up in routes page on the web application
+* In Rails land, gets, puts, chomp, etc. is not going to work because these are plain ruby commands that require information to be sent form the command prompt.
+    * Rails requires input to be gathered through params[:name] in which name is an html attribute on your input html tag.  when the html page sends the request, the ruby code look at the matching html attribute to match it up to it’s parameter.
+* In Rails, that if you want to let a variable in the Controller page be visible in the HTML View page, then you may use an instance variable.
+    * it’s important to note that this is the complete opposite of how Ruby uses instance variables.
+* resources : issues - this is a rails helper that will generate conventional routes for you.  You will still need to generate the HTML views and the Controllers with actions files.
+
+Controllers
+* Route > Controller > Action > View
+* This is a ruby file.  that matches the controller name you specified in the routes file.
+    * route example: get '/issues/new' => 'issues#new'
+        * the bold part on the other side of your # is the ACTION.
+    * so the route is the URL you want to go too
+    * controller takes the incoming request and directs it to an HTML file. in a specific spot in your application. it is under Views.
+* file MUST be titles the same as the controller in the routes + _controller, eg. issues_controller.rb.
+* Then the class must be the same, IssuesClass.
+* It must be under the app>controller folder
+* it must also inherit from the ApplicationController class
+* Actions are like methods on a controller page.
+* You need to create a page under the views folder that is an interactive ruby pages, so new.html.erb
+* Rails convention for looking at all vs looking at one for controllers is #index for ALL and #show for one specific issue, usually called by the :id
+
+Rails in Ruby Mine
+You can also create rails applications from terminal
+as long as you have it in your same file, then you can open it up and look at it in ruby
+In terminal, navigate to your folder with your application and type, rails console - this will open up a rails environment (this is like run rails console in ruby mine)
+
+Run Rails Rake Task > db.migrate - this will run your migration table.
+
+When working with databases, ‘String’ columns have a 255 character limit; ‘Text’ columns are infinite long
+When you need a database, think migration because this will let you get consistent databases on all places (production)
+
+Relationships
+belongs_to :table name - this established relationship in your ruby file that links the tables, creates a ruby method that tells the file where to go.
+* if you need to specify the class name, you may do this by tacking a , class_name = ‘ClassName’.  This will overwrite Rails assumption.
+* reference - does the belong to for you
+*
+
+Http Verb
+Crud Commands with APIs
+It is a verb that indicates what you want to do with the route.
+Links are GET requests; Forms are other requests, such as POST.
+You can change the verb by adding an optional argument to your embedded ruby that specifies the route.
+
+Embedded Ruby
+Uses <% %> tags, or skull tags
+If you actually need to see ruby printed in the HTML page, then it will include an ‘=‘.  So <%= %>
+
+
+
+
+Gem File in Rails App
+just add it to your gem file, gem ‘devise’;
+* You will need to install devise for each rails application
+    * from terminal run rails generate devise:install
+    * or better yet, from RubyMine, Tools > Run Rails Generator > devise:Install
+* devise will store your data as an encrypted password
+* it also adds validation so that you are required to create an account with a password
+* in terminal, navigate to the application folder then run rails server
+    * CTRL C to exit server
+* this will give you a URL to a local host.  go to that user, then /users/sign_up.
+* http://localhost:3000/yeoahe - let’s you see all the routes for the web application created by devise
+    * these routes were all created by devise_for :users this one line of code that is in the routes.rb file in your rails application
+gem ‘pry-rails’ - adds pry to your rails console so you have a few extra add-ons from pry.
+
+Find vs Find_by
+* find will always take an id.  it will also return an error if it can’t find your user
+* find_by can be used with an email, name, etc.  and it will return nil if it cannot find it.  it can take and id, but you may as well use find for that.

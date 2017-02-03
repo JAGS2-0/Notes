@@ -1,0 +1,42 @@
+Wednesday, Jan. 11
+
+Ruby
+* Length method - it you call this on an array, then it will give you 1 regardless of the amount of data stored in the array.
+    * for example, if you have 1 array, filled with 100 items. ‘.length’ will still give you a return result of 1 because you are calling ‘.length’ on 1 array.
+    * length is not set up to recognize a block of code.  So if you give it a conditional, it will ignore it and only give you the total count.
+    * if you want a total number of something that meets a conditional, then you need to use .count
+* Split method
+    * if you use this on a sting, and use str.split(‘’) - with an empty quote - then this will split the string by each character.
+* ‘.each’ is designed to run a block of code NOT effect the return value.  So, if you care about changing the return value, then you probably do not want to use ‘.each’.
+    * ‘.each’ will alway return your original value, not the result of the block of code ‘.each’ is designed to run.
+    * if you want the updated return, WHEN USING EACH, then you will want to request your method RETURN the updated result (usually your variable)
+* If you want to define a methods parameter WITH a DEFAULT then you set the parameter with an =.
+    * So, reset(n=0) - this means that if a variable is NOT specified when the method is called, then set it to the default, 0.
+* Instance Variables - are specifically class internal, which means that may not be used outside the methods used to build the object.
+    * all instance variables are nil by default.  so if you reference one that you have not set, it will break if you try to call something on nil.
+
+Hash
+* Sets of Keys and Values
+* if you are updating a hash and you know the specific key’s value that you want to update, then that looks like this
+    * hash[:key] = value
+    * for example, you want to set
+* when you ‘.each’ through a hash, you are looking at a key and a value, so always make sure you look for | key, value |
+* ‘.values’ -> method on hashes that gives you an array of all the values in the hash.
+* ‘.max_by’ > let’s you find the key,value with the highest value, then you may order it by the value
+    * counts.values.max_by { |k, v| v} - this says give me the values of the hash in an array.  then, over each pair, give me the max pair
+
+
+Class
+* a collection of data and methods to operate with a collection of data
+* BLUEPRINT
+* to start, you always put ‘class’, then the name must always be uppercase (naming convention)
+* whenever you are creating a class, if you want to interact with it, then you need to call it with .new and store it in a variable.
+    * this creates a new instance of the class
+    * this is the default ‘initialize’ method being called.
+* Initialize
+    * each class has this method internally, but you usually set it so that you can add any customized variables because the default initialize just reserves a section of memory to build your object.
+    * When you add initialize, this is where you add some default stuff for your class
+* classes have a handful of methods that are included with them because any class includes the ‘object’ class whether you write the methods or not.
+    * so for example, you may call ‘to_s’ in any class because it automatically pulls in from the object class which is built into the standard object.
+* each class also has a default for initialize, so that you may call ‘.new’ even if you do not have an initialize yet.
+*

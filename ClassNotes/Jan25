@@ -1,0 +1,66 @@
+Wednesday, Jan. 25
+
+Web Framework
+* Rails is a type of WebFramework, but not the only one
+
+Server Requests
+* Verb
+    * CRUD
+* Path
+    * URL
+* Body
+    * Form Content
+* Headers
+    * Content-Type
+    * Authorization (Access-Token)
+
+Server Responses
+* Headers
+    * Status (200, 404, 500)
+        * 400’s usually mean the client did something wrong
+        * 500’s usually mean the server did something wrong.
+* Body
+    * HTML
+    * JSON
+    * CSV
+
+Rails
+If you have trouble with migrations
+* db:reset - run this one rake task and it will automatically do all of the following:
+    * runs db:drop (deletes db)
+    * db:schema:load (re-loads your schema file)
+    * db:seed (runs the seed file)
+time_ago_in_words - will display times as ‘7 minutes ago’
+first_or_create - you may use this on things like following a blog post and in has many model creations
+* If the pair already exists on your has_many model, then it will not create one because it will just find the first on.
+* If the pair does not exist, then create it.
+
+Has_many Model creation
+Follower user: belongs_to, issue: belongs_to - when creating a many to many join table.
+
+Devise
+* before_action :authenticate_user!
+    * this is a built in device that Devise gives you that let’s you make sure each user is logged in before taking certain actions.
+    * You want to add this to each Controller page (at the top) that a user must be authenticated for before actually accessing
+    * Often this will be in the parent class of all your Controller pages
+*
+
+Bootstrap
+* CSS Framework
+* getbootstrap.com
+* to implement it to a site
+    * CDN - content delivery network (bootstrapcdn.com)
+    * you copy the link, then you paste it in the top of your HTML application sheet so that it will be in all other files.  Make sure it is in the header and that it is listed before any stylesheets you created.
+
+Cucumber File Example
+Given I’m a Dev Manager
+When I click on an issue
+And I select a developer
+Then that is you is assigned to that developer
+
+Layout for how to do Cuke Example
+You create a form on the Issues#Show page with a drop down and Assign button
+The Assign button will make you call to the server, so it must be a form button
+So you need a new route that would be an update, so PATCH
+You need to create a new controller to update, so issues#assign, that is assigned to the PATCH route
+then a

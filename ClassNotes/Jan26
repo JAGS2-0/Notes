@@ -1,0 +1,60 @@
+Thursday, Jan. 26
+
+Cucumber
+* Each file describes a feature
+    * These tests can live outside your application
+* BDD - Behavior Driven Development
+* Scenario - defines a new test
+* Given - is the set up, And is often used too
+* When is the action
+* Then - this is your expectations
+* Scenario Outline - this can be used for a bunch of scenarios that all look the same
+*
+
+Step Definitions
+* Tells Ruby what your cucumber files means
+* It includes each cucumber line with Rejex
+* Rejex
+    * Converts your Cucumber file into a template that let’s you work with it in Ruby
+    * opened and closed in /
+    * ^ means start at the beginning
+    * $ end here
+    * Reject as different templates that you may use when your Cucumber files include emails or numbers.
+        * you include it in (\_+) - the _ is where you would add a letter that indicates what is in this bracket, such as a number or email address.
+        * d - indicates a digit
+        * w - indicates a word
+        * S - anything but whitespace - often use this one for email addresses because it will grab the @ and the .com parts.
+        * Rubular.com will have more info on how to format your Rejex.
+* In Rubymine, hover over the line in the cucumber file, then hit ALT + ENTER, to get to the option to create a new cucumber file.
+    * the line must be recognized by ruby mine that it does not have a matching step def
+
+In Rails with Rubymine
+* run rspec:install and cucumber:install to generate files that will help when writing tests against rails application
+* If you are joining a table with another one using through then you have to establish the association first.  So you have to add a the steps.
+    * e.g., if you want to connect Users to Posts, via Favorites, then you have to first establish that Users is connected to Favorites by saying, has_many :favorites.
+    * This will let you then connect Users to Posts through Favorites such as, has_many :posts, through :favorites.
+* When you have a many to many relationship and a join table, start by just writing the method, get it to pass the test, then shorten it by using an Active Record relationship
+* has_many :followers, through :favorites, source :user
+    * the ‘source’ part tells you which one it cares about.  So, this is trying to call the followers method on the favorites class, but there are two columns on the favorites table: Post and Users.  You specify the source to let it know which data you want.
+    * followers is being declared by rails as a followers method that you may call on the post class.  This will go to the favorites table and grab all the user ids associated with that post.
+
+ActiveRecord
+* when you are writing a method on the class, and you need to call a method that is an instance of that class, then you can just say the method.
+    * e.g. you are on a User class, and need to get the user.id from the table.  Active record creates an ‘id’ method that let’s you get the id of that User from the database.  So you can call, self.id or just id, to get the value.
+* When in doubt you can always use a .create or where clauses to get the data you need from the DB
+
+
+Capybara vs Webrat / Launchy
+* Capybara is usually installed by default with Cucumber.  It is a helper gem that let’s you write a bunch of methods to actually run your rails application against the web.
+* Capybara does it all behind the scenes, but if you actually want to see your application, the you can use launchy, another gem, to open in a browser.
+
+Git & GitHub & Command Line
+* In Git Hub create a repo without initializing the read file - this will let you create a blank repo
+* In terminal type git remote -v
+    * this will let you see where you are pushing and pulling code from
+* If you want to pull from one then push to a working branch, you need to change one to the upstream
+* In terminal, type git remote rename origin upstream
+* Next, you need to point origin to your blank repo.  Github will usually have this code for you, but it will look like this:
+    * git remote add origin https://github.com/JAGS2-0/frankenapp.git
+    * git push -u origin master
+* Then when you push code, your origin will be reset.  In ruby mine, you can change from where you are pushing and pulling code between these two repos.

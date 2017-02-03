@@ -1,0 +1,43 @@
+Friday Jan. 13
+
+Ruby
+* if you need to use a value again, then you need to always RETURN the value as opposed to using a puts.
+* PUTS is really only for the human eye, not computers
+* When you are trying to write testable code, PUTS is not really an option - you need to RETURN
+* There is a method called, ‘.instance_variables’ that when called on an object will present you an array of all the instance variables in that class.
+* attr_reader - used whenever you need to just return the instance variable
+* attr_accessor - gives you a reader and a writer, also know as a ‘getter’ and a ’setter’
+* You can subtract arrays.
+    * [1, 2, 3, 4, 5,] - [1, 2, 3] = [4, 5]
+    * subtracting arrays pulls out all the matching data and gives you want is left.
+    * You may do this in pry with classes too.  so (2.0).methods - (2).methods will give you all the methods you may do on the float class (2.0), but not the integer class.
+* naming convention is that you name the class with the first letter capitalized
+    * the file is the same as the class, but all lowercase
+    * CamelCase are broken up to ‘camel_case’ (this is class name to file name)
+* You may create a new array with x positions by calling Array.new(9)
+
+Inheritance vs Require
+* require_relative only let’s you look at the capitalized portions of the other file, which is usually a class, that allows you access to all the methods in that class.  but you must still obstantiate that class to use the methods from the required files.  In other words, you can not interact on variables outside the class from a required file.
+
+Classes
+* a Class is a ‘class’ in ruby.  which has it’s own methods
+* you may call the method, ‘.class’ on a variable to see what it’s class is
+* all classes, unless otherwise specified, have a superclass ‘object’.  This is how you are able to call some methods that are universal, such as ‘to_s’.
+    * when you call ‘to_s’, Ruby will see if that is in your class x (the only you are defining).  If it’s not there, then it goes up the ancestral chain, to it’s next superclass ‘Object’, to so if the method exists there. If it does not exist, in any super class, then you get a ‘no method’ error.
+* You can format super and sub classes with ‘<‘ signs.
+    * class B < A
+* take the number 2
+    * it is an integer class.  but if you call Integer.ancestors in pry, you’ll see it’s subclass path and that integer is a subclass of numeric.
+    * so this is why if you call ‘ls 2’ in pry, then you will see methods for Integers and it’s parent class Numeric.
+        * this means you may use numeric and integer methods on it
+* ‘.ancestors’ will show you the superclass and modules that apply to the file.  it’s the path ruby will search to look for methods.
+
+Modules
+* has a collection of methods just like a class
+* a class can be instantiated, as in you can make an instance of that class
+* modules can NOT be instantiated, they are just a collection of methods
+* if you want to add modules to other files, then use the keyword ‘include’
+
+Enumerable
+* is a module
+* a collection of methods in which the methods may all include or be re-written as an ‘each’.

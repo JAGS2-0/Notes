@@ -1,0 +1,38 @@
+Thursday, Jan. 12
+
+Ruby
+* version 2.4.0 introduced the sum method that uses n(n+1)/2 to add up a sum of consecutive numbers.
+* you do not want to ‘OR’ ( | | - the ruby sign for OR) strings together.  this is because Ruby will read it as ‘a | | d’ which = ‘a’.  Ruby takes the first value you give it.
+    * So, str.ends_with?(‘a’ || ‘d’) evaluates to str.ends_with?(‘a’) - which will be false.
+* Also keep in mind that Ruby will evaluate the expression in the parentheses before it applies it to the method.
+
+String Method
+* chomp - cuts off the last character of a string if it’s ‘/n’ -> an empty space
+
+R-spec
+* testing framework
+* uses ‘it’ statements in a ‘describe’ section that explain your tests.
+* Describe - is your object/class you are testing
+* ‘It’ - set up as ‘it ‘{test description}’ do … block of ruby code to run test.. end.
+* a ‘spec’ file is the one that contains all your tests to describe the class/code you are testing
+* do NOT put a space after expect
+* change ‘it’ to ‘skip’ if you would like the rspec file to step over that test
+* you may have multiple ‘expect’ statements in a test, but generally try to keep it at 1 statement per test
+
+
+RubyMine Notes for R-Spec
+* When you run a test, in the run results, there is an OK button in the upper-left corner.
+* this button allows you to see ALL results that pass/fail.
+    * you may use this to see all the results, then check just one test result by clicking on it to view the error message if it failed
+* if you want to run 1 particular test, place your cursor on that link, right click, then run that one test.
+
+Require vs. Require_relative
+* require_relative tells the file to look for the required file in the same directory.
+* if not in the same directory, then use require and the code path
+
+Hashes
+* when you are creating a hash, you’ll use hash rocket to set the key, value pair.
+    * hash = { key => value, key2 => value2 }
+    * to get the value for a key, use hash[key].
+    * if you want to set a key do, hash[key] = value
+    *

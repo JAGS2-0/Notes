@@ -1,0 +1,49 @@
+Tuesday, Jan. 10
+
+Kata - repetitive exercise that help build memory muscle
+
+Ruby
+* if a function need data from the outside world, then you have to pass it in as an argument
+* if the outside word needs data from a function, then the data must be returned
+* writing return at the end of a function ends the function
+* if you want to evaluate numbers, such as does ’5829’ include a ‘5’, then you must think of it as a string, so convert it to a string first. (to_s)
+* post fix notation
+    * writing your conditional all on one line
+    * odds.push n if n.odd?
+* PUTS creates a new line, PRINTS leaves you on the same line
+* reduce - collapsing an array
+* you can multi-assign variables in one line of code
+    * a,b = 1,2 will be a =1 and b = 2
+* any ruby method that ends in a question mark will return a true/false
+* Enumerable - is anything you may step through or that has a reasonable definition for each.
+    * examples are hashes and arrays
+* string interpolation or #{x} is the same as calling to_s on a variable
+
+Enumerable (methods)
+* ‘do’ and ‘end for a line block of code may also be replaced with { }
+    * the style convention is to use curly brackets if you are putting a ‘do’ and ‘end on one line of code
+    * array.each { |n| puts n }
+* ‘.map’, let’s you shorthand ‘.each’ so that you return an updated array, just keep your existing one.
+* .map is always going to return the same number as the original array.  So if you call ‘.map’ on an array of 13 items, you get an array of 13 items returned
+* ‘.select’, will let you select specific items from the array if they match a specific conditions
+    * array.select { |n| n.odds? }
+* ‘.reject’, will exclude the items in an array that match a specific criteria.
+* ‘.reduce’ - it takes two variables, so you would pass in ‘x’ and ‘y’.
+    * reduce knows to increase x by y and update x to the existing sum.  So if x=1 and y=2 (the first items in the array), then on the second pass of the loop, x will be 1 + 2.  On the second round, x will be 3 and y will be the next time in the array, 3.  x = 3 + y = 3 = 6.
+    * for short hand you can do , array.reduce :+  -> this says reduce the array to 1 number by adding all the numbers in the array.
+    * reduce is not used often
+* group_by - transforms data into a hash
+
+Arrays
+* rand(1..100) - randomly picks a number between 1 and 100
+* x.times - for loops, run a block of code x amount of times.
+* each
+    * followed by ‘do’ |x| with an end to create a code block
+* use ‘.push’ to add to an array
+    * doubles.push (n)
+* partition - breaking up data into different groups, categorys, collections, etc.  often makes you think ‘hash’ because this is how you group multiple key,value pairs.
+
+HW - if you can
+* allow for any # of players - using hashes
+    * players [{name:, score:}]
+* extra methods

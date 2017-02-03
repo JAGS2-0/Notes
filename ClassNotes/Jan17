@@ -1,0 +1,47 @@
+Tuesday, Jan. 17
+
+Hashes
+* they use bracket notation!!
+* h = Hash.new(9) looks like, h = { }, then if you call h[key] you will get 9, as Hash.new(value) starts each key you add to the specified value
+* a = Array.new(9) gives you an array with 9 ‘nil’ spots .. [nil, nil, nil…]
+
+
+CSV Ruby Notes
+* keyword argument - this is the ‘headers: true’ that we add on ‘.foreach’
+
+Ruby Notes
+* ‘def’ is a method and will returns the name of the method as a symbol - but you will only see this in a ‘rebel’ like pry
+* Class Methods - you may create methods on a class by doing def self.  This means you do not have to generate an instance of the class to call the method, but rather you may just call the method on the class
+    * class << self
+    * eg f = MyClass.new, then f.write
+    * or MyClass.write - this calls the method on the class without have to create an instance of that class
+
+Keyword Arguments
+* add a ‘:’ to the end of the parameter in your method
+* they can be used any method at all
+* they provide a good argument if you forget one over the other
+* they allow you to interchange the order on the variables that are passed to the method
+* they provide a lot more flexibility
+* if you set a keyword argument with a default set value, then it will automatically set it to the default unless otherwise specified.
+* if you create a keyword argument with NO default, then you must include it when you call the method, but the position does not matter
+* keyword arguments must come after your standard variables
+* if you have a standard variable with keyword arguments, the standard must be called in the correct position and number of arguments.
+
+ERB
+* embedded ruby
+* lets you embed it in a different file type, such as an HTML file
+    * looks like <%= 100 + 100 %>
+    * uses the % signs
+* there is an ERB Class
+* you must add require ‘erb’ at the top of your file
+* binding - its an object that will set all local variables
+* useful for generating output files that have some form of structure to them, i.e., you needed a table of data that is formatted all pretty with ruby code populating the variables before hand
+
+RubyMine Coverage Report
+* when you run a file, use ‘Run with Coverage’
+* it will show the percentage of the file in which the lines of code was executed.  If there is a portion that is not run, then it will have a red bar at the side of the code.
+* In this case that is code that was not run, so you probably do not have a test case that uses this code
+    * the dangerous part of this is that the untouched code could cause a crash, but you would not know because it was not utilized.
+
+Ruby and files
+* any time you are parsing information from a file, it is a STRING!!  So if you are parsing out TRUE and FALSE, this is NOT the boolean value T or R, it’s the string.  and in ruby any string is true.  So even the string ‘false’ is true.

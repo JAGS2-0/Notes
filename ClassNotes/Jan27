@@ -1,0 +1,24 @@
+Friday, Jan. 27
+
+Rejex
+* / / how ruby knows you are using rejex - denotes the beginning and end
+    * ^ and $ tell it the beginning and end of the line - this is really only necessary when working with cuke files.
+    * For example, if you want to stuff Rejex into a variable you only need the forward slashes.
+* for special characters, just make sure that they are not in the guide on Rubular.com.
+* If you need to use one, such as the $, that is part of Rejex, then it needs an escape character.
+* For Rejex, this is a /
+
+Cucumber Files
+* The Feature doesn’t really matter, but it does come into play in regards to our BT Automation repo because the feature title is the one that you use on the Reflux Dashboard
+*
+
+Rubular
+* you write your Rejex expression in the Your Regular Expression box
+* then, you can test it by adding examples in ‘Your test string:’
+* in the ‘Match results’, if it highlights in blue, then the test string will match your Rejex expression.
+
+Command and Git
+* all your projects have a .git file.  you can see this when you do ls -a in command line.
+    * it’s a hidden file
+* This is where GIT tracks all your changes and files.
+* when you do Commit Directory in ruby mine, .git is where you are committing the changes too.

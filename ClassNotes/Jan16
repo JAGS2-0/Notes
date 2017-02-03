@@ -1,0 +1,46 @@
+Monday, Jan. 16
+
+Class
+* make sure your ‘attr_reader’ attributes are always in the
+
+Coding
+* start with what you have to store and think about what type of data that is and how to store it
+* break it down to small steps and use ‘Puts’ statements so that you can see your code working - you can take these out later
+
+Ruby
+* IO = a ruby class that you can “Input/Output” to, so anything you may put data into and get data out
+
+File Class
+* this is another ruby class (that you may ls in pry)
+* it’s parent class is IO
+* ‘.foreach’ - file class method that says, here is a block of code for you to do something with on each line.
+    * ‘.foreach’ will break at each ‘/n’
+    * foreach includes a trailing new line, so you’ll want to do ‘line.chomp’ when you use it to remove the trailing new line
+    * this method is meant for reading, so you do not have to specify if you are reading or writing
+* ‘.read’ - returns a long string with line breaks indicated by ‘\n’ character
+* File.read(“file path”) - this will return a string of the contents of the file
+* File.write(‘path to file you are writing to’, ‘the text you are writing’) - both as strings
+    * will overwrite the existing text in the file
+* Ruby does not understand a ‘~’ as your home directory in file paths
+* File.open (‘path’, mode)
+    * the mode is how you want to open it.  it may be opened as ‘w’ for write and ‘r’ for read.
+    * there is an ‘append’ mode, if you want to write to the file and keep the existing contents
+    * ‘w’ - is going to over write the content
+    * good practice to also ‘.close’ the file after you open it.
+    * if you use open, with ‘write’ mode, and you are in an existing directory, but the file you are specifying does not exist, then Ruby will create the file for you.
+        * so file.open(‘path’, ‘w’) - maybe used to create a file.
+    * if using the File.open with ‘read’ mode, you would use ‘gets’ to get the info in the file
+        * gets will only read one line at a time, but it remembers it’s place if you use it in a block.
+        * ‘.foreach’ - this can often be used for all your ‘gets’ logic
+    * ‘.rewind’ - let’s you go back to the first place in the file
+
+Ruby .csv parser
+* file needs to be required when using it.  so would add require ’cvs’ at the top of your file
+* CSV.foreach - will return each line as an array - sweet! - with each item broken up into the array
+* by adding ‘headers: true’ to your block you get each line returned as a ‘.csv’ line.  so it looks like a hash
+* CSV.open ( ‘path’, ‘w’ ) do | cvs | end - to write a cvs file
+    * you push arrays to the file
+
+Ruby JSON parser
+* JSON.parse will return the file as a hash - then you can work with it as that
+* ‘to_json’ - will create a JSON formatted string for you.

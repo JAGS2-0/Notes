@@ -1,0 +1,62 @@
+Monday, Jan. 9
+
+terminal
+* which
+    * tells you which one you are actually running; i.e. which ruby you are running.
+
+
+IRB
+* REPL - Read, Eval, Print, Loop
+    * read the expression, evaluate it, print it on the screen, then loop it
+
+Pry
+* ‘ls {variable}’ - by using ‘ls’ you can see all the methods that are able to be used on this type of variable.
+    * e.g. - ‘ls str’ will give you all the methods for a string
+    * q to quit
+*
+* wtf? - will give you the error trace.  the more ?!?! the further back it goes
+* .class - will let you know the type of variable you are working with.
+* show-source Array#shelljoin - this will let you see what the method does
+* undefined method ‘x’ for nil:NilClass = you are trying to call a method on nothing, so you need to define your variable first.
+* In ruby mine, if you do ‘require pry’ at the top of your file, then enter ‘binding.pry’, when you run the program, this will stop at the ‘binding.pry’ line and put you in PRY so that you mean explore and ‘debug’.
+* ^C - this will interrupt a process such as an infinite loop
+* ‘_’ (an underscore) in pry will evaluate to the last bit of code you wrote. so if you wrote something complicated, but forgot to store it in a variable you can write ‘x = _’ and it will populate x with the last evaluated code
+* .clear - wipes it clean
+
+
+Ruby
+* everything is an object; something is always returned
+* strings
+    * double quotes lets you do string interpolation; single is just a sting
+    * split - turns it into an array with the individual words
+        * this can be done by more than just a space, for example if you give it ’s’, then it will break out your string where the ’s’s’ are.
+    * slice - let’s you declare a a specific sub-string
+    * ‘to_a’ - convert string to an array
+    * \n - line brake in a string
+* number notation (with strings, but may also be used with array)
+    * ‘0..2’ - the two dots are called a ‘range’; so this is saying give me the first two characters
+    * ’10..15’ - this says give me the 10th to the 15th character
+    * ‘0, 2’ - this is saying start at the first word in the string, then give me the first two characters.
+    * ’10, 5’ - this says go to the tenth character and give me the following five.
+* float - a decimal number, such as 1.01
+    * ruby will round down to the nearest whole number. if you want the decimal, then make sure to use a floated number
+        * 5/2 = 2.  5.0/2 - 2.5
+    * never use float numbers for currency
+* boolean
+    * true and false
+* symbol
+    * can be used over and over again and it’s always the same.
+    * indicates to other developers that i don’t really expect you to do anything with this
+* array
+    *  to get something in the x position, use bracket notation, with 0 being the first position.
+    * if you want to get ‘x.last’, but don’t know the position number and cannot use the .last method, then do ‘x[-1]’. because then it will count backwards
+    * x.push - will update an array to add to the end of it
+* hashes
+    * keys and values; symbols are often used for the keys.
+    * curly brackets and hash rockets
+    * collecting fields of data
+* Print vs Puts - puts will always have a line break at the end.  Print will keep you in the same line
+* Rescue vs Raise
+    * Rescue goes with ‘begin’ and lets you write a block of code to handle exceptions to the case you are looking for.  So if you are looking for an integer, but the user gives you a string, you can use ‘rescue’ to handle this case.
+    * Raise, presents an error to the user.
+* modulus - returns the remainder of division; represented as %

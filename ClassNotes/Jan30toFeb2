@@ -1,0 +1,71 @@
+Monday, Jan. 30
+
+BT Database Relationships
+Tenant to User is a one-to-many relationship
+Contact to ContactUser to User is a many-to-many relationship
+
+self.table_name = 'dbo.Tenant'
+* You have to add this to configure ActiveRecord; otherwise it will use convention to name the table based on the class name, Tenant.
+
+The casing of your column names matter.  So, in our db, it’s LastName, so if you try to call User.find_by(last_name: ‘goodman’), this will not work because last_name does not equal LastName.
+
+User.find_by(Email: ‘email’).tenant - this will give you the specific user, then the tenant object for that user.  then it let’s you call methods on the tenant object.  You have to do the join first, which is where you call the class method on the opposite class.  so User.tenant or Tenant.user
+
+
+Tuesday, Jan. 31
+
+Interacting with an API (for example, Slack)
+* ? - appends parameters to the end of your route
+* & - allows you to attach multiple parameter pairs
+* %20 - indicates a space in your parameter in the URL
+* pretty=1, makes JSON readable to the human eye, can be added to the end of the URL
+*
+
+
+cucumber —init from command line (sets up some folders for your )
+
+JSON.parse(response.body)
+* in an API call, you may do response.body to get a STRING of the parameters in the body.
+* if you need to grab specific info from it, then you may call this method, so that you may get it in a hash and extract certain info.
+
+.env files
+* this file contains environment variables that you do NOT want to check into get.  it’s where you store tokens, etc.
+
+.gitignore
+* this is a simple text file that you can add that will tell git to ignore these files when you commit to github.
+* you may add them to your project
+* always a good idea to add .env to it
+* put it at the root of your project
+
+Wednesday, Feb. 1
+
+find_elements(*args)
+* the star tells the method to take any amount of ‘arguments’ that you pass into the method and pack it up as an array
+* if you use it in a method, then you will need to unpack the array
+* This makes it so the method can take any amount of argument.
+
+grabbing elements
+these two are very similar, but they are different and the single space is what makes it so.
+* a.tag - no space; this will give you an anchor tag <a>, with the css class, ‘.tag’.
+* a. tag - space; this will give you any HTML tag that is nested in an <a> tag that has the css class, .tag.  So it’s possible to get back an HTML element that is NOT an anchor tag.
+
+Cucumber files
+Background - this sets a given for all the common scenarios
+
+Thursday, Feb. 2
+
+
+%w - In ruby, this will let you get an array of strings
+	%w(this is a list of works) - returns an array with each word in a string.
+
+
+d = @web.find_all (‘div”)
+d.attribute :innerHTML - this will give you all the html on the element you are looking at
+d.attribute :class - this will show you the class on the element.
+
+ruby let’s you put underscores instead of commas in numbers - it will just ignore them and it makes it nicer to read
+
+working with API data
+data = [results] - results is a hash, so that .count will give you 2 because it gives you the key value pairs
+data[results][items] = will let you get
+data[results].keys - this gives you all the relevant info in the hash.
